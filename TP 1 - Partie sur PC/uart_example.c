@@ -11,7 +11,7 @@
 
 int main() {
 
-    int serial_port = open("/dev/ttyACM0", O_RDWR);
+    int serial_port = open("/dev/ttyS3", O_RDWR);
 
     // Check for errors
     if (serial_port < 0) {
@@ -72,7 +72,7 @@ int main() {
         printf("Error %i from tcsetattr: %s\n", errno, strerror(errno));
     }
 
-    unsigned char msg[] = { 1, 0, 10, 50, 100, 13, 'C', 'o', 'u', 'c', 'o', 'u', ' ', 'c', 'o', 'p', 'a', 'i', 'n', '\n' };
+    unsigned char msg[] = { 0, 1, 50, 100, 200, 3, 's', 'o', 's','\n' };
     write(serial_port, msg, sizeof(msg));
     
 }
